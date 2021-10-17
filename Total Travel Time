@@ -1,0 +1,56 @@
+
+library(magrittr)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+
+ny = read.csv('nyc.csv')
+
+ny['CITY']='New york'
+
+wash = read.csv('washington.csv')
+
+wash['CITY']='Washington'
+
+chi = read.csv('chicago.csv')
+
+chi ['CITY']= 'Chicago'
+
+# Summary statistics for each of the 3 cities
+# NYC
+head(ny)
+tail(ny)
+summary(ny)
+
+# Washingto
+head(wash)
+tail(wash)
+summary(wash)
+
+# Chicago
+head(chi)
+tail(chi)
+summary(chi)
+
+
+
+### Finding the common columns
+common_cols <- intersect(intersect(colnames(ny), colnames(wash)),colnames(chi))
+
+### Conbining the data
+cities <- rbind( subset(ny, select = common_cols),
+                 
+                 subset(wash, select = common_cols),
+                 
+                 subset(chi, select =common_cols))
+
+### Here is the bar plot that show the resuts
+
+ggplot(cities) +
+  
+  geom_bar(aes(CITY, Trip.Duration, fill = as.factor(CITY)),
+           
+           position = "dodge", stat = "summary", fun = "sum")
+
+
+
