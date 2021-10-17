@@ -1,0 +1,144 @@
+# NYC Data Code -----
+
+NYC_Days = read.csv('nyc.csv')
+
+weekDays_mode = 'sunday'
+
+# Installing the packages/ using the installed packages
+
+library(magrittr)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+
+
+# Adding a new column such as 'Weekday' would be beneficial with this format.
+NYC_Days$Weekday <- format(as.Date(NYC_Days$Start.Time), "%A")
+
+#Now you want to insert that into the title, you can use the following
+weekDays_mode <- NYC_Days$Weekday
+weekDays_mode <- mode(weekDays_mode)
+
+
+
+
+#This is another way to do it
+
+
+A= paste("The most Common Day of Week in YOUR_CITY city is:", weekDays_mode)
+qplot(x=Weekday,data= NYC_Days, color=I('Black'),fill=I(' dark green'))+
+  ggtitle(A) +
+  labs(x = "Weekdays")+
+  labs(y = "Count of Users")
+
+
+
+# ---------------  NYC SUmmary Statistics ---------------------
+
+head(NYC_Days)
+tail(NYC_Days)
+summary(NYC_Days)
+mean(NYC_Days$Start.Time, na.rm =TRUE)
+
+lapply(NYC_Days, mean, na.rm = TRUE)
+sapply(NYC_Days, mean, na.rm = TRUE)
+colMeans(NYC_Days, na.rm = TRUE)
+
+
+# Washington Data Code ------------------------------------------------------------
+
+
+
+Wash_Days = read.csv('washington.csv')
+
+weekDays_mode = 'sunday'
+
+
+library(magrittr)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+
+
+# Adding a new column such as 'Weekday' would be beneficial with this format.
+Wash_Days$Weekday <- format(as.Date(Wash_Days$Start.Time), "%A")
+
+#Now you want to insert that into the title, you can use the following
+weekDays_mode <- Wash_Days$Weekday
+weekDays_mode <- mode(weekDays_mode)
+
+
+
+
+#This is another way to do it
+
+
+A= paste("The most Common Day of Week in YOUR_CITY city is:", weekDays_mode)
+qplot(x=Weekday,data= Wash_Days, color=I('Black'),fill=I(' light blue'))+
+  ggtitle(A) +
+  labs(x = "Weekdays")+
+  labs(y = "Count of Users")
+
+
+
+# ---- Washington Summary Statistics --------
+
+
+head(Wash_Days)
+tail(Wash_Days)
+summary(Wash_Days)
+mean(Wash_Days$Start.Time, na.rm =TRUE)
+
+lapply(Wash_Days, mean, na.rm = TRUE)
+sapply(Wash_Days, mean, na.rm = TRUE)
+colMeans(Wash_Days, na.rm = TRUE)
+
+
+
+#------------Chicago Data Code ----------------
+
+
+Chicago_Days = read.csv('chicago.csv')
+
+weekDays_mode = 'sunday'
+
+
+library(magrittr)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+
+
+# Adding a new column such as 'Weekday' would be beneficial with this format.
+Chicago_Days$Weekday <- format(as.Date(Chicago_Days$Start.Time), "%A")
+
+#Now you want to insert that into the title, you can use the following
+weekDays_mode <- Chicago_Days$Weekday
+weekDays_mode <- mode(weekDays_mode)
+
+
+
+
+#This is another way to do it
+
+
+A= paste("The most Common Day of Week in YOUR_CITY city is:", weekDays_mode)
+qplot(x=Weekday,data= Chicago_Days, color=I('Black'),fill=I(' red'))+
+  ggtitle(A) +
+  labs(x = "Weekdays")+
+  labs(y = "Count of Users")
+
+
+
+# ---- Washington Summary Statistics --------
+
+
+head(Chicago_Days)
+tail(Chicago_Days)
+summary(Chicago_Days)
+mean(Chicago_Days$Start.Time, na.rm =TRUE)
+
+lapply(Chicago_Days, mean, na.rm = TRUE)
+sapply(Chicago_Days, mean, na.rm = TRUE)
+colMeans(Chicago_Days, na.rm = TRUE)
+
