@@ -1,0 +1,97 @@
+install.packages("magrittr")
+install.packages("data.table")
+
+library(magrittr)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+
+NYC_AVG = read.csv('nyc.csv')
+
+median(NYC_AVG$Trip.Duration, na.rm=TRUE)
+
+# Summary statistics for NYC Data set
+head(NYC_AVG)
+tail(NYC_AVG)
+summary(NYC_AVG)
+
+mean(NYC_AVG$Start.Time, na.rm =TRUE)
+
+lapply(NYC_AVG, mean, na.rm = TRUE)
+
+sapply(NYC_AVG, mean, na.rm = TRUE)
+
+colMeans(NYC_AVG, na.rm = TRUE)
+
+
+# Plotting the actual data visualization for the NYC_AVG Data set
+
+library(ggplot2) #this is for importing the package we have download above
+ qplot(x=Trip.Duration, data=NYC_AVG, color=I('Black'), fill=I('red'))+
+        ggtitle("Average Time for Users in Different Cities") +
+        labs(x = "Average Time") +
+        labs(y = "Count of Users")
+
+ 
+ 
+# ------------------This is for the Washington Data set
+ 
+ 
+Wash_AVG = read.csv('washington.csv')
+ 
+median(Wash_AVG$Trip.Duration, na.rm=TRUE)
+
+
+# Summary statistics for Wash_AVG Data set
+head(Wash_AVG)
+tail(Wash_AVG)
+summary(Wash_AVG)
+
+mean(Wash_AVG$Start.Time, na.rm =TRUE)
+
+lapply(Wash_AVG, mean, na.rm = TRUE)
+
+sapply(Wash_AVG, mean, na.rm = TRUE)
+
+colMeans(Wash_AVG, na.rm = TRUE)
+ 
+
+# Plotting the actual data visualization for the NYC_AVG Data set
+ 
+ library(ggplot2) #this is for importing the package we have download above
+ qplot(x=Trip.Duration, data= Wash_AVG, color=I('Black'), fill=I('blue'))+
+   ggtitle("Average Time for Users in Different Cities") +
+   labs(x = "Average Time") +
+   labs(y = "Count of Users")
+ 
+ 
+# ---------------------------------Chicago Data set 
+ 
+ Chicago_AVG = read.csv('chicago.csv')
+ 
+ median(Chicago_AVG$Trip.Duration, na.rm=TRUE)
+ 
+ 
+ # Summary statistics for the Chicago Data set
+ head(Chicago_AVG)
+ tail(Chicago_AVG)
+ summary(Chicago_AVG)
+ 
+ mean(Chicago_AVG$Start.Time, na.rm =TRUE)
+ 
+ lapply(Chicago_AVG, mean, na.rm = TRUE)
+ 
+ sapply(Chicago_AVG, mean, na.rm = TRUE)
+ 
+ colMeans(Chicago_AVG, na.rm = TRUE)
+ 
+ 
+ # Plotting the actual data visualization for the Chicago_AVG Data set
+ 
+ library(ggplot2) #this is for importing the package we have download above
+ qplot(x=Trip.Duration, data= Chicago_AVG, color=I('Black'), fill=I('dark green'))+
+   ggtitle("Average Time for Users in Different Cities") +
+   labs(x = "Average Time") +
+   labs(y = "Count of Users")
+ 
+ 
